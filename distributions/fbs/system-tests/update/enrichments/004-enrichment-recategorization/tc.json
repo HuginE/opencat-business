@@ -16,7 +16,10 @@
                 {
                     "record": "rawrepo-hovedpost.marc",
                     "type": "MARCXCHANGE",
-                    "deleted": false
+                    "deleted": false,
+                    "enrichments": [
+                        "rawrepo-hovedpost-enrichment.marc"
+                    ]
                 },
                 {
                     "record": "rawrepo-common.marc",

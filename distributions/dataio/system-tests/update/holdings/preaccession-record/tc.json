@@ -17,7 +17,10 @@
                 {
                     "record": "rawrepo-common.marc",
                     "type": "MARCXCHANGE",
-                    "deleted": false
+                    "deleted": false,
+                    "enrichments": [
+                        "rawrepo-dbc-enrichment.marc"
+                    ]
                 },
                 {
                     "record": "rawrepo-dbc-enrichment.marc",
