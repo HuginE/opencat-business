@@ -1,6 +1,6 @@
 #!groovy
 
-def workerNode = "devel10"
+def workerNode = "devel8"
 
 void deploy(String deployEnvironment) {
     dir("deploy") {
