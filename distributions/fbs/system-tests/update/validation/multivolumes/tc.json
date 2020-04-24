@@ -47,7 +47,10 @@
                 {
                     "record": "rawrepo-main.marc",
                     "type": "MARCXCHANGE",
-                    "deleted": false
+                    "deleted": false,
+                    "enrichments": [
+                        "rawrepo-main-enrichment.marc"
+                    ]
                 }
             ]
         },
