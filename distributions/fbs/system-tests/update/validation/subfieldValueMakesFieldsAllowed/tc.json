@@ -11,7 +11,27 @@
             "templateName": "bog",
             "record": "goodbook.marc"
         },
-        "expected": {}
+        "expected": {
+            "validation": {},
+            "update": {
+                "errors": [],
+                "rawrepo": [
+                    {
+                        "record": "goodbook.marc",
+                        "type": "MARCXCHANGE",
+                        "deleted": false,
+                        "enqueued": true,
+                        "enrichments": [ "goodbook-enrichment.marc" ]
+                    },
+                    {
+                        "record": "goodbook-enrichment.marc",
+                        "type": "ENRICHMENT",
+                        "deleted": false,
+                        "enqueued": true
+                    }
+                ]
+            }
+        }
     },
     {
         "name": "subfieldValueMakesFieldsAllowedBad",

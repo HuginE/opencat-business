@@ -7,7 +7,7 @@ function die() {
 }
 
 DOCKER_IMAGE=dbc-jsshell
-
+export LC_ALL="da_DK.UTF-8"
 echo UID $(id -u)
 echo GID $(id -g)
 

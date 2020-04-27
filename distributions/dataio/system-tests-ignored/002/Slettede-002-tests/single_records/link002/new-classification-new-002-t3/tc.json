@@ -27,7 +27,7 @@
                 {
                     "record": "rawrepo-common-c2.marc",
                     "type": "MARCXCHANGE",
-                    "holdings": [ 710100, 700500 ],
+                    "holdings": [ 710100, 715900 ],
                     "deleted": false,
                     "enrichments": [ "rawrepo-dbc-enrichment-c2.marc" ]
                 },

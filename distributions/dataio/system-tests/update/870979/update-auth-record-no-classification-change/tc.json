@@ -21,13 +21,13 @@
           "enrichments": [
             "setup-870970-191919.marc",
             "setup-870970-763000.marc",
-            "setup-870970-700500.marc",
-            "setup-870970-700600.marc"
+            "setup-870970-715900.marc",
+            "setup-870970-781300.marc"
           ],
           "holdings": [
-            700400,
-            700500,
-            700600,
+            720100,
+            715900,
+            781300,
             763000
           ]
         },
@@ -42,12 +42,12 @@
           "deleted": false
         },
         {
-          "record": "setup-870970-700500.marc",
+          "record": "setup-870970-715900.marc",
           "type": "ENRICHMENT",
           "deleted": false
         },
         {
-          "record": "setup-870970-700600.marc",
+          "record": "setup-870970-781300.marc",
           "type": "ENRICHMENT",
           "deleted": false
         },
@@ -83,8 +83,8 @@
             "enrichments": [
               "expected-870970-191919.marc",
               "expected-870970-763000.marc",
-              "expected-870970-700500.marc",
-              "expected-870970-700600.marc"
+              "expected-870970-715900.marc",
+              "expected-870970-781300.marc"
             ]
           },
           {
@@ -102,14 +102,14 @@
             "queueWorkers": ["broend-sync", "oai-set-matcher"]
           },
           {
-            "record": "expected-870970-700500.marc",
+            "record": "expected-870970-715900.marc",
             "type": "ENRICHMENT",
             "deleted": false,
             "enqueued": true,
             "queueWorkers": ["broend-sync", "oai-set-matcher"]
           },
           {
-            "record": "expected-870970-700600.marc",
+            "record": "expected-870970-781300.marc",
             "type": "ENRICHMENT",
             "deleted": false,
             "enqueued": true,

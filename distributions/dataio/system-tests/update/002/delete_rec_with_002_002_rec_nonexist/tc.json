@@ -39,7 +39,10 @@
                 {
                     "record": "rawrepo-common-002target.marc",
                     "type": "MARCXCHANGE",
-                    "deleted": true
+                    "deleted": true,
+                    "enrichments": [
+                        "rawrepo-common-002target-enrichment.marc"
+                    ]
                 },
                 {
                     "record": "rawrepo-common-002target-enrichment.marc",
@@ -133,7 +136,10 @@
                     "type": "MARCXCHANGE",
                     "deleted": true,
                     "comment": "vi gemmer lige holdings lidt endnu for at se hvad der sker",
-                    "holdings": [ 710100 ]
+                    "holdings": [ 710100 ],
+                    "enrichments": [
+                        "rawrepo-common-002target-enrichment.marc"
+                    ]
                 },
                 {
                     "record": "rawrepo-common-002target-enrichment.marc",

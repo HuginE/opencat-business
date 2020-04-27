@@ -1,6 +1,6 @@
 [
     {
-        "name": "basis-vip-auth-public-lib-common-record-700400",
+        "name": "basis-vip-auth-public-lib-common-record-720100",
         "description": "Tester featuren 'auth_public_lib_common_record' is off",
         "request": {
             "authentication": {
@@ -14,13 +14,13 @@
         "setup": {
             "rawrepo": [
                 {
-                    "record": "rawrepo-common-700400.marc",
+                    "record": "rawrepo-common-720100.marc",
                     "type": "MARCXCHANGE",
                     "deleted": false,
-                    "enrichments": [ "rawrepo-dbc-enrichment-700400.marc" ]
+                    "enrichments": [ "rawrepo-dbc-enrichment-720100.marc" ]
                 },
                 {
-                    "record": "rawrepo-dbc-enrichment-700400.marc",
+                    "record": "rawrepo-dbc-enrichment-720100.marc",
                     "type": "ENRICHMENT",
                     "deleted": false
                 }
@@ -40,14 +40,14 @@
                 } ],
                 "rawrepo": [
                     {
-                        "record": "rawrepo-common-700400.marc",
+                        "record": "rawrepo-common-720100.marc",
                         "type": "MARCXCHANGE",
                         "deleted": false,
                         "enqueued": false,
-                        "enrichments": [ "rawrepo-dbc-enrichment-700400.marc" ]
+                        "enrichments": [ "rawrepo-dbc-enrichment-720100.marc" ]
                     },
                     {
-                        "record": "rawrepo-dbc-enrichment-700400.marc",
+                        "record": "rawrepo-dbc-enrichment-720100.marc",
                         "type": "ENRICHMENT",
                         "deleted": false,
                         "enqueued": false

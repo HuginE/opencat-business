@@ -118,7 +118,10 @@
             710100
           ],
           "type": "MARCXCHANGE",
-          "deleted": true
+          "deleted": true,
+          "enrichments": [
+            "rawrepo-53082289-191919.marc"
+          ]
         },
         {
           "record": "rawrepo-53082289-191919.marc",
@@ -174,7 +177,7 @@
     }
   },
   {
-    "name": "delete-002a-ref-deleted-reference-without-holdings",
+    "name": "delete-002a-ref-deleted-reference-without-holdings-1",
     "description": "Tester at man kan slette 002a selvom der er beholdning på den refererede post",
     "request": {
       "authentication": {
@@ -203,7 +206,10 @@
         {
           "record": "rawrepo-53082289-870970.marc",
           "type": "MARCXCHANGE",
-          "deleted": true
+          "deleted": true,
+          "enrichments": [
+            "rawrepo-53082289-191919.marc"
+          ]
         },
         {
           "record": "rawrepo-53082289-191919.marc",
@@ -249,7 +255,7 @@
     }
   },
   {
-    "name": "delete-002a-ref-deleted-reference-without-holdings",
+    "name": "delete-002a-ref-deleted-reference-without-holdings-2",
     "description": "Tester at man kan slette 002a selvom der er beholdning på den refererede post",
     "request": {
       "authentication": {
@@ -278,7 +284,10 @@
         {
           "record": "rawrepo-53082289-870970.marc",
           "type": "MARCXCHANGE",
-          "deleted": true
+          "deleted": true,
+          "enrichments": [
+            "rawrepo-53082289-191919.marc"
+          ]
         },
         {
           "record": "rawrepo-53082289-191919.marc",

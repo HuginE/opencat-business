@@ -32,7 +32,10 @@
         {
           "record": "rawrepo-53836674-870970.marc",
           "type": "MARCXCHANGE",
-          "deleted": true
+          "deleted": true,
+          "enrichments": [
+            "rawrepo-53836674-191919.marc"
+          ]
         },
         {
           "record": "rawrepo-53836674-191919.marc",

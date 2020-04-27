@@ -4,7 +4,7 @@
         "description": "Tester oprettelse af ny lokal post med tyske aldersbegrænsninger i 006d",
         "request": {
             "authentication": {
-                "group": "700400",
+                "group": "720100",
                 "user": "netpunkt",
                 "password": "20Koster"
             },

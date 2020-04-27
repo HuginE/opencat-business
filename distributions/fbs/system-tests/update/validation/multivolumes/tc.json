@@ -11,7 +11,27 @@
             "templateName": "boghoved",
             "record": "main.marc"
         },
-        "expected": {}
+        "expected": {
+            "validation": {},
+            "update": {
+                "errors": [],
+                "rawrepo": [
+                    {
+                        "record": "rawrepo-main.marc",
+                        "type": "MARCXCHANGE",
+                        "deleted": false,
+                        "enqueued": true,
+                        "enrichments": [ "rawrepo-main-enrichment.marc" ]
+                    },
+                    {
+                        "record": "rawrepo-main-enrichment.marc",
+                        "type": "ENRICHMENT",
+                        "deleted": false,
+                        "enqueued": true
+                    }
+                ]
+            }
+        }
     },
     {
         "name": "volume-book-no-main",
