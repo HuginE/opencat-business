@@ -1,7 +1,7 @@
 [
   {
     "name": "Individual-count-for-ids",
-    "description": "School count iand LED existence shall be done individually",
+    "description": "School count and LED existence shall be done individually",
     "request": {
       "authentication": {
         "group": "010100",
