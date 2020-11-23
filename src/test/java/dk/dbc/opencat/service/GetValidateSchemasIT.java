@@ -52,10 +52,6 @@ public class GetValidateSchemasIT extends AbstractOpencatBusinessContainerTest {
                 "    \"schemaInfo\": \"Skabelon til katalogisering af flerbindsværk af fysiske bøger - hovedpost.\"\n" +
                 "  },\n" +
                 "  {\n" +
-                "    \"schemaName\": \"dbclittolk\",\n" +
-                "    \"schemaInfo\": \"\"\n" +
-                "  },\n" +
-                "  {\n" +
                 "    \"schemaName\": \"delete\",\n" +
                 "    \"schemaInfo\": \"Skabelon til sletteposter - alle post- og materialetyper.\"\n" +
                 "  },\n" +
