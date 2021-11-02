@@ -6,25 +6,18 @@ export PROJECT_ROOT=$(dirname $(dirname $(realpath ${0})))
 
 RAWREPO_VERSION=1.13-snapshot
 RAWREPO_DIT_TAG=DIT-5016
+RAWREPO_RECORD_SERVICE_VERSION=DIT-281
 HOLDINGS_ITEMS_VERSION=1.1.4-snapshot
+UPDATE_FACADE_TAG=master-31
 
-cd ${PROJECT_ROOT}/docker
-mkdir -p logs/update/app logs/update/server logs/fakesmtp
-res=$?
-if [ ${res} -ne 0 ]
+if [ ! "$1" == "false" ]
 then
-    echo "Could not create ${PROJECT_ROOT}/docker/logs/update/app ${PROJECT_ROOT}/docker/logs/update/server"
-    exit 1
-fi
-chmod ugo+rw logs logs/update/app logs/update/server logs/fakesmtp
-res=$?
-if [ ${res} -ne 0 ]
-then
-    echo "Could not set o+rw for ${PROJECT_ROOT}/logs and subdirectories"
-    exit 1
+  echo "Building maven project"
+  cd ${PROJECT_ROOT}
+  mvn clean package
 fi
 
-
+docker build target/docker -t docker-io.dbc.dk/opencat-business-service:devel
 
 cd ${PROJECT_ROOT}/docker/compose
 
@@ -56,7 +49,7 @@ fi
 # Create docker network if it doesn't exists
 [[ ! "$(docker network ls | grep update-compose-network)" ]] && docker network create --subnet=192.180.0.0/22 update-compose-network
 
-export PROD_VERSION=$(curl -f --silent --globoff "https://is.dbc.dk/view/metascrum/job/updateservice/job/tag-updateservice-for-prod/lastSuccessfulBuild/api/xml?xpath=//action/parameter/name[text()='DOCKER_TAG']/following-sibling::value" | sed -En 's|<value>(.+)</value>|\1|p')
+export PROD_VERSION=$(curl -s https://is.dbc.dk/view/metascrum/job/updateservice/job/updateservice-deploy/job/cisterne/lastSuccessfulBuild/artifact/UPDATE_DOCKER_IMAGE | cut -f2-3 -d:)
 echo "Using prod version ${PROD_VERSION} of updateservice"
 
 # On macOS you have to install envsubst first. Run these commands: brew install gettext && brew link --force gettext
@@ -73,6 +66,11 @@ then
     export DEV_OPENAGENCY_URL="http://${HOST_IP}:${SOLR_PORT_NR}"
 fi
 
+DEV_VIPCORE_ENDPOINT=${DEV_VIPCORE_ENDPOINT:-NOTSET}
+if [ ${DEV_VIPCORE_ENDPOINT} = "NOTSET" ]
+then
+    export DEV_VIPCORE_ENDPOINT="http://${HOST_IP}:${SOLR_PORT_NR}"
+fi
 # Solr FBS settings
 DEV_SOLR_ADDR=${DEV_SOLR_ADDR:-NOTSET}
 if [ ${DEV_SOLR_ADDR} = "NOTSET" ]
@@ -119,6 +117,8 @@ docker rmi -f docker-io.dbc.dk/rawrepo-postgres-${RAWREPO_VERSION}:${USER}
 docker rmi -f docker-os.dbc.dk/holdings-items-postgres-${HOLDINGS_ITEMS_VERSION}:${USER}
 docker rmi -f docker-i.dbc.dk/update-postgres:${USER}
 docker rmi -f docker-i.dbc.dk/update-payara-deployer:${USER}
+docker rmi -f docker-io.dbc.dk/opencat-business-service:${USER}
+docker rmi -f docker-io.dbc.dk/rawrepo-record-service:${USER}
 docker-compose pull
 docker-compose up -d rawrepoDb updateserviceDb holdingsitemsDb fakeSmtp
 sleep 3
@@ -128,8 +128,6 @@ docker tag docker-os.dbc.dk/holdings-items-postgres-${HOLDINGS_ITEMS_VERSION}:la
 docker rmi docker-os.dbc.dk/holdings-items-postgres-${HOLDINGS_ITEMS_VERSION}:latest
 docker tag docker-i.dbc.dk/update-postgres:staging docker-i.dbc.dk/update-postgres:${USER}
 docker rmi docker-i.dbc.dk/update-postgres:staging
-docker tag docker-i.dbc.dk/update-payara-deployer:staging docker-i.dbc.dk/update-payara-deployer:${USER}
-docker rmi docker-i.dbc.dk/update-payara-deployer:staging
 
 RAWREPO_IMAGE=`docker-compose ps -q rawrepoDb`
 export RAWREPO_PORT=`docker inspect --format='{{(index (index .NetworkSettings.Ports "5432/tcp") 0).HostPort}}' ${RAWREPO_IMAGE} `
@@ -147,7 +145,37 @@ export DEV_RAWREPO_DB_URL="rawrepo:thePassword@${HOST_IP}:${RAWREPO_PORT}/rawrep
 export DEV_HOLDINGS_ITEMS_DB_URL="holdingsitems:thePassword@${HOST_IP}:${HOLDINGSITEMSDB_PORT}/holdingsitems"
 export DEV_UPDATE_DB_URL="updateservice:thePassword@${HOST_IP}:${UPDATESERVICEDB_PORT}/updateservice"
 
+docker-compose up -d rawrepo-record-service
+docker tag docker-io.dbc.dk/rawrepo-record-service:${RAWREPO_RECORD_SERVICE_VERSION} docker-io.dbc.dk/rawrepo-record-service:${USER}
+docker rmi docker-io.dbc.dk/rawrepo-record-service:${RAWREPO_RECORD_SERVICE_VERSION}
+
+RAWREPO_RECORD_SERVICE_IMAGE=`docker-compose ps -q rawrepo-record-service`
+RAWREPO_RECORD_SERVICE_PORT_8080=`docker inspect --format='{{(index (index .NetworkSettings.Ports "8080/tcp") 0).HostPort}}' ${RAWREPO_RECORD_SERVICE_IMAGE} `
+echo -e "RAWREPO_RECORD_SERVICE_PORT_8080 is ${RAWREPO_RECORD_SERVICE_PORT_8080}\n"
+RAWREPO_RECORD_SERVICE_PORT_8686=`docker inspect --format='{{(index (index .NetworkSettings.Ports "8686/tcp") 0).HostPort}}' ${RAWREPO_RECORD_SERVICE_IMAGE} `
+echo -e "RAWREPO_RECORD_SERVICE_PORT_8686 is ${RAWREPO_RECORD_SERVICE_PORT_8686}\n"
+RAWREPO_RECORD_SERVICE_PORT_4848=`docker inspect --format='{{(index (index .NetworkSettings.Ports "4848/tcp") 0).HostPort}}' ${RAWREPO_RECORD_SERVICE_IMAGE} `
+echo -e "RAWREPO_RECORD_SERVICE_PORT_4848 is ${RAWREPO_RECORD_SERVICE_PORT_4848}\n"
+
+export DEV_RAWREPO_RECORD_SERVICE_URL="http://${HOST_IP}:${RAWREPO_RECORD_SERVICE_PORT_8080}"
+
+docker-compose up -d opencat-business-service
+docker tag docker-io.dbc.dk/opencat-business-service:devel docker-io.dbc.dk/opencat-business-service:${USER}
+docker rmi docker-io.dbc.dk/opencat-business-service:devel
+
+OPENCAT_BUSINESS_SERVICE_IMAGE=`docker-compose ps -q opencat-business-service`
+OPENCAT_BUSINESS_SERVICE_PORT_8080=`docker inspect --format='{{(index (index .NetworkSettings.Ports "8080/tcp") 0).HostPort}}' ${OPENCAT_BUSINESS_SERVICE_IMAGE} `
+echo -e "OPENCAT_BUSINESS_SERVICE_PORT_8080 is ${OPENCAT_BUSINESS_SERVICE_PORT_8080}\n"
+OPENCAT_BUSINESS_SERVICE_PORT_8686=`docker inspect --format='{{(index (index .NetworkSettings.Ports "8686/tcp") 0).HostPort}}' ${OPENCAT_BUSINESS_SERVICE_IMAGE} `
+echo -e "OPENCAT_BUSINESS_SERVICE_PORT_8686 is ${OPENCAT_BUSINESS_SERVICE_PORT_8686}\n"
+OPENCAT_BUSINESS_SERVICE_PORT_4848=`docker inspect --format='{{(index (index .NetworkSettings.Ports "4848/tcp") 0).HostPort}}' ${OPENCAT_BUSINESS_SERVICE_IMAGE} `
+echo -e "OPENCAT_BUSINESS_SERVICE_PORT_4848 is ${OPENCAT_BUSINESS_SERVICE_PORT_4848}\n"
+
+export DEV_OPENCAT_BUSINESS_SERVICE_URL="http://${HOST_IP}:${OPENCAT_BUSINESS_SERVICE_PORT_8080}"
+
 docker-compose up -d updateservice
+docker tag docker-i.dbc.dk/update-payara-deployer:${PROD_VERSION} docker-i.dbc.dk/update-payara-deployer:${USER}
+docker rmi docker-i.dbc.dk/update-payara-deployer:${PROD_VERSION}
 
 UPDATESERVICE_IMAGE=`docker-compose ps -q updateservice`
 UPDATESERVICE_PORT_8080=`docker inspect --format='{{(index (index .NetworkSettings.Ports "8080/tcp") 0).HostPort}}' ${UPDATESERVICE_IMAGE} `
@@ -157,10 +185,23 @@ echo -e "UPDATESERVICE_PORT_8686 is ${UPDATESERVICE_PORT_8686}\n"
 UPDATESERVICE_PORT_4848=`docker inspect --format='{{(index (index .NetworkSettings.Ports "4848/tcp") 0).HostPort}}' ${UPDATESERVICE_IMAGE} `
 echo -e "UPDATESERVICE_PORT_4848 is ${UPDATESERVICE_PORT_4848}\n"
 
-echo "updateservice.url = http://${HOST_IP}:${UPDATESERVICE_PORT_8080}" > ${HOME}/.ocb-tools/testrun.properties
-echo "buildservice.url = http://${HOST_IP}:${UPDATESERVICE_PORT_8080}" >> ${HOME}/.ocb-tools/testrun.properties
-echo "doublerecordcheck.url = http://${HOST_IP}:${UPDATESERVICE_PORT_8080}/UpdateService/rest/api/v1/doublerecordcheck" >> ${HOME}/.ocb-tools/testrun.properties
-echo "classificationcheck.url = http://${HOST_IP}:${UPDATESERVICE_PORT_8080}/UpdateService/rest/api/v1/classificationcheck" >> ${HOME}/.ocb-tools/testrun.properties
+export UPDATE_SERVICE_URL="http://${HOST_IP}:${UPDATESERVICE_PORT_8080}/UpdateService/rest"
+export BUILD_SERVICE_URL="http://${HOST_IP}:${UPDATESERVICE_PORT_8080}/UpdateService/rest"
+
+docker-compose up -d updateservice-facade
+docker tag docker-io.dbc.dk/updateservice-facade:${UPDATE_FACADE_TAG} docker-io.dbc.dk/updateservice-facade:${USER}
+docker rmi docker-io.dbc.dk/updateservice-facade:${UPDATE_FACADE_TAG}
+
+UPDATESERVICE_FACADE_IMAGE=`docker-compose ps -q updateservice-facade`
+UPDATESERVICE_FACADE_PORT_8080=`docker inspect --format='{{(index (index .NetworkSettings.Ports "8080/tcp") 0).HostPort}}' ${UPDATESERVICE_FACADE_IMAGE} `
+echo -e "UPDATESERVICE_FACADE_PORT_8080 is ${UPDATESERVICE_FACADE_PORT_8080}\n"
+UPDATESERVICE_FACADE_PORT_8686=`docker inspect --format='{{(index (index .NetworkSettings.Ports "8686/tcp") 0).HostPort}}' ${UPDATESERVICE_FACADE_IMAGE} `
+echo -e "UPDATESERVICE_FACADE_PORT_8686 is ${UPDATESERVICE_FACADE_PORT_8686}\n"
+UPDATESERVICE_FACADE_PORT_4848=`docker inspect --format='{{(index (index .NetworkSettings.Ports "4848/tcp") 0).HostPort}}' ${UPDATESERVICE_FACADE_IMAGE} `
+echo -e "UPDATESERVICE_FACADE_PORT_4848 is ${UPDATESERVICE_FACADE_PORT_4848}\n"
+
+echo "updateservice.url = http://${HOST_IP}:${UPDATESERVICE_FACADE_PORT_8080}" > ${HOME}/.ocb-tools/testrun.properties
+echo "buildservice.url = http://${HOST_IP}:${UPDATESERVICE_FACADE_PORT_8080}" >> ${HOME}/.ocb-tools/testrun.properties
 
 echo "rawrepo.jdbc.driver = org.postgresql.Driver" >> ${HOME}/.ocb-tools/testrun.properties
 echo "rawrepo.jdbc.conn.url = jdbc:postgresql://${HOST_IP}:${RAWREPO_PORT}/rawrepo" >> ${HOME}/.ocb-tools/testrun.properties
@@ -174,7 +215,7 @@ echo "holdings.jdbc.conn.passwd = thePassword" >> ${HOME}/.ocb-tools/testrun.pro
 
 echo "solr.port = ${SOLR_PORT_NR}" >> ${HOME}/.ocb-tools/testrun.properties
 
-echo "request.headers.x.forwarded.for = ${HOST_IP}" >> ${HOME}/.ocb-tools/testrun.properties
+echo "request.headers.x.forwarded.for = 172.17.20.165" >> ${HOME}/.ocb-tools/testrun.properties
 
 echo "rawrepo.provider.name.dbc = dataio-update" >> ${HOME}/.ocb-tools/testrun.properties
 echo "rawrepo.provider.name.fbs = opencataloging-update" >> ${HOME}/.ocb-tools/testrun.properties
@@ -183,5 +224,8 @@ echo "rawrepo.provider.name.ph.holdings = dataio-ph-holding-update" >> ${HOME}/.
 
 echo "export SOLR_PORT_NR=${SOLR_PORT_NR}"
 
-echo "Sleeping 60 seconds while updateservice is deploying"
-sleep 60
+../../bin/healthcheck-opencat-business-service.sh ${HOST_IP} ${OPENCAT_BUSINESS_SERVICE_PORT_8080} 220 || die "could not start opencat-business-service"
+../../bin/healthcheck-rawrepo-record-service.sh ${HOST_IP} ${RAWREPO_RECORD_SERVICE_PORT_8080} 220 || die "could not start rawrepo-record-service"
+../../bin/healthcheck-update-service.sh ${HOST_IP} ${UPDATESERVICE_PORT_8080} 220 || die "could not start update-service"
+../../bin/healthcheck-update-facade-service.sh ${HOST_IP} ${UPDATESERVICE_FACADE_PORT_8080} 220 || die "could not start update-facade-service"
+

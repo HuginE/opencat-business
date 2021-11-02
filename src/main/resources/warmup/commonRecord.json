@@ -1,0 +1,48 @@
+{
+  "fields": [
+    {
+      "name": "001",
+      "indicator": "00",
+      "subfields": [
+        {
+          "name": "a",
+          "value": "51580761"
+        },
+        {
+          "name": "b",
+          "value": "870970"
+        },
+        {
+          "name": "c",
+          "value": "20150304180759"
+        },
+        {
+          "name": "d",
+          "value": "20150209"
+        },
+        {
+          "name": "f",
+          "value": "a"
+        },
+        {
+          "name": "t",
+          "value": "FAUST"
+        }
+      ]
+    },
+    {
+      "name": "004",
+      "indicator": "00",
+      "subfields": [
+        {
+          "name": "r",
+          "value": "n"
+        },
+        {
+          "name": "a",
+          "value": "e"
+        }
+      ]
+    }
+  ]
+}

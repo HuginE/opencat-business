@@ -32,7 +32,16 @@
                 "b": {
                     "mandatory": true,
                     "repeatable": false,
-					"values": [ "870971" ]
+					"values": [ "870971", "870978" ],
+                    "rules": [
+                        {
+                            "type": "SubfieldRules.subfieldValueMakesFieldsAllowed",
+                            "params": {
+                                "fields": [ "559", "654" ],
+                                "values": [ "870978" ]
+                            }
+                        }
+                    ]
                 },
                 "c": {
                     "mandatory": true,
@@ -96,7 +105,20 @@
                 "d": "DanMarc2.fields.008.subfields.d",
                 "j": "DanMarc2.fields.008.subfields.j",
                 "l": "DanMarc2.fields.008.subfields.l",
-                "r": "DanMarc2.fields.008.subfields.r",
+                "r": {
+                    "repeatable": false,
+                    "values": [ "a", "b", "c", "d", "e", "f", "g", "m", "p", "r", "s", "t", "u", "v",
+                        "am", "an", "ap", "az", "ad", "a?" ],
+                    "rules": [
+                        {
+                            "type": "SubfieldRules.subfieldValueMakesFieldsAllowed",
+                            "params": {
+                                "fields": [ "558" ],
+                                "values": [ "a" ]
+                            }
+                        }
+                    ]
+                },
                 "n": "DanMarc2.fields.008.subfields.n",
                 "x": "DanMarc2.fields.008.subfields.x",
                 "v": "DanMarc2.fields.008.subfields.v"
@@ -122,11 +144,6 @@
                                         "agencyId": "870970",
                                         "fieldAndSubfield": "014x",
                                         "matchValues": ["ANM"]
-                                    },
-                                    {
-                                        "agencyId": "870971",
-                                        "fieldAndSubfield": "014x",
-                                        "matchValues": ["DEB", "FOR", "SMS"]
                                     }
                                 ]
                             }
@@ -345,6 +362,9 @@
                 "i": "DanMarc2.fields.530.subfields.i",
                 "a": "DanMarc2.fields.530.subfields.a",
                 "t": "DanMarc2.fields.530.subfields.t",
+                "c": "DanMarc2.fields.530.subfields.c",
+                "p": "DanMarc2.fields.530.subfields.p",
+                "g": "DanMarc2.fields.530.subfields.g",
                 "e": "DanMarc2.fields.530.subfields.e",
                 "d": "DanMarc2.fields.530.subfields.d",
                 "x": "DanMarc2.fields.530.subfields.x",
@@ -352,7 +372,8 @@
                 "b": "DanMarc2.fields.530.subfields.b",
                 "u": "DanMarc2.fields.530.subfields.u",
                 "y": "DanMarc2.fields.530.subfields.y",
-                "z": "DanMarc2.fields.530.subfields.z"
+                "z": "DanMarc2.fields.530.subfields.z",
+                "7": "DanMarc2.fields.530.subfields.7"
             }
         },
         "532":{
@@ -384,6 +405,8 @@
             }
         },
         "557": "DanMarc2.fields.557",
+        "558": "DanMarc2.fields.558",
+        "559": "DanMarc2.fields.559",
         "600": "dbcsingle.fields.600",
         "610":{
             "url":"http://www.kat-format.dk/danMARC2/Danmarc2.6e.htm",
@@ -402,7 +425,10 @@
                 "0": "DanMarc2.fields.610.subfields.0",
                 "1": "DanMarc2.fields.610.subfields.1",
                 "2": "DanMarc2.fields.610.subfields.2",
-                "5": "DanMarc2.fields.610.subfields.5",
+                "5":{
+                    "repeatable": false,
+                    "values": [ "870979" ]
+                },
                 "6": "DanMarc2.fields.610.subfields.6"
             }
         },
@@ -428,6 +454,24 @@
                 "z":"DanMarc2.fields.652.subfields.z"
             }
         },
+        "654":{
+            "url":"http://www.kat-format.dk/danMARC2/Danmarc2.7a.htm",
+            "sorting": "\u00E5mnoipqrahkefctbvz01",
+            "subfields":{
+                "m":{
+                    "mandatory": true,
+                    "repeatable": false
+                },
+                "v":"DanMarc2.fields.652.subfields.v",
+                "a":"DanMarc2.fields.652.subfields.a",
+                "h":"DanMarc2.fields.652.subfields.h",
+                "e":"DanMarc2.fields.652.subfields.e",
+                "f":"DanMarc2.fields.652.subfields.f",
+                "c":"DanMarc2.fields.652.subfields.c",
+                "b":"DanMarc2.fields.652.subfields.b",
+                "z":"DanMarc2.fields.652.subfields.z"
+            }
+        },
         "666":{
             "url":"http://www.kat-format.dk/danMARC2/Danmarc2.7f.htm",
             "subfields":{
@@ -435,6 +479,8 @@
                     "repeatable": false
 				},
                 "f": "DanMarc2.fields.666.subfields.f",
+                "g": "DanMarc2.fields.666.subfields.g",
+                "h": "DanMarc2.fields.666.subfields.h",
                 "t": "DanMarc2.fields.666.subfields.t",
                 "e": "DanMarc2.fields.666.subfields.e",
                 "s": "DanMarc2.fields.666.subfields.s",
@@ -589,11 +635,54 @@
         "n50": "dbcsingle.fields.n50",
         "n51": "dbcsingle.fields.n51",
         "n55": "dbcsingle.fields.n55",
+        "q00": {
+            "subfields": {
+                "&":{}, "0":{}, "1":{}, "2":{}, "3":{}, "4":{}, "5":{}, "6":{}, "7":{}, "8":{}, "9":{},
+                "A":{}, "a":{}, "B":{}, "b":{}, "C":{}, "c":{}, "D":{}, "d":{}, "E":{}, "e":{}, "F":{}, "f":{},
+                "G":{}, "g":{}, "H":{}, "h":{}, "I":{}, "i":{}, "J":{}, "j":{}, "K":{}, "k":{}, "L":{}, "l":{},
+                "M":{}, "m":{}, "N":{}, "n":{}, "O":{}, "o":{}, "P":{}, "p":{}, "Q":{}, "q":{}, "R":{}, "r":{},
+                "S":{}, "s":{}, "T":{}, "t":{}, "U":{}, "u":{}, "V":{}, "v":{}, "W":{}, "w":{}, "X":{}, "x":{},
+                "Y":{}, "y":{}, "Z":{}, "z":{},
+                "\u00C6":{}, "\u00e6":{}, "\u00d8":{}, "\u00f8":{}, "\u00c5":{},"\u00e5":{}
+            }
+        },
+        "q10": {
+            "subfields": {
+                "&":{}, "0":{}, "1":{}, "2":{}, "3":{}, "4":{}, "5":{}, "6":{}, "7":{}, "8":{}, "9":{},
+                "A":{}, "a":{}, "B":{}, "b":{}, "C":{}, "c":{}, "D":{}, "d":{}, "E":{}, "e":{}, "F":{}, "f":{},
+                "G":{}, "g":{}, "H":{}, "h":{}, "I":{}, "i":{}, "J":{}, "j":{}, "K":{}, "k":{}, "L":{}, "l":{},
+                "M":{}, "m":{}, "N":{}, "n":{}, "O":{}, "o":{}, "P":{}, "p":{}, "Q":{}, "q":{}, "R":{}, "r":{},
+                "S":{}, "s":{}, "T":{}, "t":{}, "U":{}, "u":{}, "V":{}, "v":{}, "W":{}, "w":{}, "X":{}, "x":{},
+                "Y":{}, "y":{}, "Z":{}, "z":{},
+                "\u00C6":{}, "\u00e6":{}, "\u00d8":{}, "\u00f8":{}, "\u00c5":{},"\u00e5":{}
+            }
+        },
+        "q45": {
+            "subfields": {
+                "&":{}, "0":{}, "1":{}, "2":{}, "3":{}, "4":{}, "5":{}, "6":{}, "7":{}, "8":{}, "9":{},
+                "A":{}, "a":{}, "B":{}, "b":{}, "C":{}, "c":{}, "D":{}, "d":{}, "E":{}, "e":{}, "F":{}, "f":{},
+                "G":{}, "g":{}, "H":{}, "h":{}, "I":{}, "i":{}, "J":{}, "j":{}, "K":{}, "k":{}, "L":{}, "l":{},
+                "M":{}, "m":{}, "N":{}, "n":{}, "O":{}, "o":{}, "P":{}, "p":{}, "Q":{}, "q":{}, "R":{}, "r":{},
+                "S":{}, "s":{}, "T":{}, "t":{}, "U":{}, "u":{}, "V":{}, "v":{}, "W":{}, "w":{}, "X":{}, "x":{},
+                "Y":{}, "y":{}, "Z":{}, "z":{},
+                "\u00C6":{}, "\u00e6":{}, "\u00d8":{}, "\u00f8":{}, "\u00c5":{},"\u00e5":{}
+            }
+        },
+        "q60": {
+            "subfields": {
+                "&":{}, "0":{}, "1":{}, "2":{}, "3":{}, "4":{}, "5":{}, "6":{}, "7":{}, "8":{}, "9":{},
+                "A":{}, "a":{}, "B":{}, "b":{}, "C":{}, "c":{}, "D":{}, "d":{}, "E":{}, "e":{}, "F":{}, "f":{},
+                "G":{}, "g":{}, "H":{}, "h":{}, "I":{}, "i":{}, "J":{}, "j":{}, "K":{}, "k":{}, "L":{}, "l":{},
+                "M":{}, "m":{}, "N":{}, "n":{}, "O":{}, "o":{}, "P":{}, "p":{}, "Q":{}, "q":{}, "R":{}, "r":{},
+                "S":{}, "s":{}, "T":{}, "t":{}, "U":{}, "u":{}, "V":{}, "v":{}, "W":{}, "w":{}, "X":{}, "x":{},
+                "Y":{}, "y":{}, "Z":{}, "z":{},
+                "\u00C6":{}, "\u00e6":{}, "\u00d8":{}, "\u00f8":{}, "\u00c5":{},"\u00e5":{}
+            }
+        },
         "r01": "dbcsingle.fields.r01",
         "r02": "dbcsingle.fields.r02",
         "r03": "dbcsingle.fields.r03",
         "s10": "dbcsingle.fields.s10",
-        "s11": "dbcsingle.fields.s11",
         "s12": "dbcsingle.fields.s12",
         "t00": "dbcsingle.fields.t00",
         "t60": "dbcsingle.fields.t60",

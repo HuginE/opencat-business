@@ -1,6 +1,6 @@
 {
     "template": {
-        "description": "Skabelon til katalogisering af flerbindsværk af film på fysiske medier (dvd, videobånd m.m.) - hovedpost.",
+        "description": "Skabelon til katalogisering af flerbindsværk af film på fysiske medier (dvd, blu-ray m.m.) - hovedpost.",
         "features": [ "all" ]
     },
     "settings": {
@@ -74,7 +74,6 @@
         "032": "DanMarc2.fields.032",
         "041":{
             "url": "http://www.kat-format.dk/danMARC2/Danmarc2.23.htm",
-            "repeatable":false,
             "sorting":"apbcdesuqt2",
             "subfields":{
                 "a": "DanMarc2.fields.041.subfields.a",
@@ -90,7 +89,7 @@
             },
             "rules": [
                 {
-                    "type": "SubfieldRules.checkSubfieldNotUsedInChildrenRecords"
+                    "type": "FieldRules.checkFieldNotUsedInChildrenRecords"
                 }
             ]
         },

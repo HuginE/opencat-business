@@ -1,6 +1,6 @@
 {
     "template": {
-        "description": "Skabelon til katalogisering af fonogrammer og noder - enkeltstående post",
+        "description": "Skabelon til katalogisering af noder - bindpost",
         "features": [ "all" ]
     },
     "settings": {
@@ -200,9 +200,9 @@
 		"023": "DanMarc2.fields.023",
         "024": "DanMarc2.fields.024",
         "028": "DanMarc2.fields.028",
+        "032": "DanMarc2.fields.032",
         "041":{
             "url": "http://www.kat-format.dk/danMARC2/Danmarc2.23.htm",
-            "repeatable":false,
             "sorting":"asbcpeu2",
             "subfields":{
                 "a": "DanMarc2.fields.041.subfields.a",
@@ -213,10 +213,15 @@
                 "s": "DanMarc2.fields.041.subfields.s",
                 "u": "DanMarc2.fields.041.subfields.u",
                 "2": "DanMarc2.fields.041.subfields.2"
-            }
+            },
+            "rules": [
+                {
+                    "type": "SubfieldRules.checkSubfieldNotUsedInParentRecord"
+                }
+            ]
         },
         "239": "DanMarc2.fields.239",
-        "240": "DanMarc2.fields.240",
+        "240": "fonogram.fields.240",
         "241":{
                 "url":"http://www.kat-format.dk/danMARC2/Danmarc2.39.htm",
                 "subfields":{                
@@ -288,7 +293,7 @@
                 "e":"DanMarc2.fields.300.subfields.e"
             }
         },
-        "440": "DanMarc2.fields.440",
+        "440": "bog.fields.440",
         "502": "DanMarc2.fields.502",
         "504":{
             "url":"http://www.kat-format.dk/danMARC2/Danmarc2.4c.htm",
@@ -399,25 +404,7 @@
 			"rules": [ { "type": "FieldRules.exclusiveSubfield" } ]
         },
         "529": "DanMarc2.fields.529",
-        "530":{
-            "url":"http://www.kat-format.dk/danMARC2/Danmarc2.5c.htm",
-            "subfields":{
-                "&":{
-                    "repeatable":false
-                },
-                "i": "DanMarc2.fields.530.subfields.i",
-                "a": "DanMarc2.fields.530.subfields.a",
-                "t": "DanMarc2.fields.530.subfields.t",
-                "e": "DanMarc2.fields.530.subfields.e",
-                "d": "DanMarc2.fields.530.subfields.d",
-                "x": "DanMarc2.fields.530.subfields.x",
-                "b": "DanMarc2.fields.530.subfields.b",
-                "u": "DanMarc2.fields.530.subfields.u",
-                "y": "DanMarc2.fields.530.subfields.y",
-                "z": "DanMarc2.fields.530.subfields.z"
-            },
-			"rules": [ { "type": "FieldRules.exclusiveSubfield" } ]
-        },
+        "530": "node.fields.530",
         "531":"DanMarc2.fields.531",
         "532":"DanMarc2.fields.532",
         "534":{
@@ -571,7 +558,7 @@
                 "7":"DanMarc2.fields.795.subfields.7"
             }
         },
-        "840": "DanMarc2.fields.840",
+        "840": "bog.fields.840",
         "880": "DanMarc2.fields.880",
         "900":{
             "url": "http://www.kat-format.dk/danMARC2/Danmarc2.99.htm",

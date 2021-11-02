@@ -265,7 +265,7 @@
                 },
                 "h": {
                     "repeatable": false,
-                    "values": [ "m", "n", "p", "z", "d", "?" ]
+                    "values": [ "m", "n", "p", "z", "d", "l", "w", "?" ]
                 },
                 "i": {
                     "repeatable": false,
@@ -812,15 +812,9 @@
             "url":"http://www.kat-format.dk/danMARC2/Danmarc2.25.htm",
             "subfields":{
                 "a":{},
-                "b":{
-                    "repeatable":false
-				},
-                "c":{
-                    "repeatable":false
-				},
-                "2":{
-                    "repeatable":false
-				},
+                "b":{},
+                "c":{},
+                "2":{},
                 "6":{}
             }
         },
@@ -1165,6 +1159,9 @@
                 "1":{
 					"repeatable": false
 				},
+                "2":{
+                    "repeatable": false
+                },
                 "4": "Lister.fields.codes.subfields.relator_code",
                 "5":{
 					"repeatable": false
@@ -1204,6 +1201,9 @@
                 "1":{
 					"repeatable": false
 				},
+                "2":{
+                    "repeatable": false
+                },
                 "4": "Lister.fields.codes.subfields.relator_code",
                 "5":{
 					"repeatable": false
@@ -1332,6 +1332,9 @@
                 "1":{
 					"repeatable": false
 				},
+                "2":{
+                    "repeatable": false
+                },
                 "5":{
 					"repeatable": false
 				},
@@ -1354,7 +1357,8 @@
                 },
                 "n":{},
                 "o":{},
-                "r":{}
+                "r":{},
+                "u":{}
             }
         },
         "242":{
@@ -1762,6 +1766,8 @@
             "subfields":{
                 "a":{},
                 "b":{},
+                "c":{},
+                "d":{},
                 "2":{
                     "repeatable":false
                 },
@@ -1843,6 +1849,9 @@
                 },
                 "1":{
                     "repeatable":false
+                },
+                "2":{
+                    "repeatable": false
                 }
             }
         },
@@ -1850,10 +1859,21 @@
             "url":"http://www.kat-format.dk/danMARC2/Danmarc2.48.htm",
             "subfields":{
                 "a":{
-                    "mandatory":true,
+                    "repeatable":false
+                },
+                "b":{},
+                "c":{
+                    "repeatable":false
+                },
+                "0":{
+                    "repeatable": false,
+                    "values": [ "pro" ]
+                },
+                "2":{
                     "repeatable":false
                 }
             }
+
         },
         "501":{
             "url":"http://www.kat-format.dk/danMARC2/Danmarc2.49.htm",
@@ -1872,6 +1892,10 @@
                 },
                 "y":{
                     "repeatable":false
+                },
+                "0":{
+                    "repeatable": false,
+                    "values": [ "pro" ]
                 }
             }
         },
@@ -1881,6 +1905,10 @@
                 "a":{
                     "mandatory":true,
                     "repeatable":false
+                },
+                "0":{
+                    "repeatable": false,
+                    "values": [ "pro" ]
                 }
             }
         },
@@ -1890,11 +1918,13 @@
                 "a":{
                     "repeatable":false
                 },
-                "u":{
-                    "repeatable":false
-                },
+                "u":{},
                 "y":{
                     "repeatable":false
+                },
+                "0":{
+                    "repeatable": false,
+                    "values": [ "pro" ]
                 }
             }
         },
@@ -1904,6 +1934,10 @@
                 "a":{
                     "mandatory":true,
                     "repeatable":false
+                },
+                "0":{
+                    "repeatable": false,
+                    "values": [ "pro" ]
                 }
             }
         },
@@ -1913,6 +1947,10 @@
                 "a":{
                     "mandatory":true,
                     "repeatable":false
+                },
+                "0":{
+                    "repeatable": false,
+                    "values": [ "pro" ]
                 }
             }
         },
@@ -1922,6 +1960,10 @@
                 "a":{
                     "mandatory":true,
                     "repeatable":false
+                },
+                "0":{
+                    "repeatable": false,
+                    "values": [ "pro" ]
                 }
             }
         },
@@ -1931,6 +1973,10 @@
                 "a":{
                     "mandatory":true,
                     "repeatable":false
+                },
+                "0":{
+                    "repeatable": false,
+                    "values": [ "pro" ]
                 }
             }
         },
@@ -1942,7 +1988,11 @@
 				},
                 "b":{
                     "repeatable":false
-				}
+				},
+                "0":{
+                    "repeatable": false,
+                    "values": [ "pro" ]
+                }
             }
         },
         "512":{
@@ -1965,7 +2015,11 @@
                 "x":{},
                 "b":{},
                 "u":{},
-                "y":{}
+                "y":{},
+                "0":{
+                "repeatable": false,
+                "values": [ "pro" ]
+            }
             },
 			"rules": [
                 {
@@ -1982,7 +2036,11 @@
                 "e":{},
                 "f":{},
                 "i":{},
-                "j":{}
+                "j":{},
+                "0":{
+                    "repeatable": false,
+                    "values": [ "pro" ]
+                }
             }
         },
         "517":{
@@ -1999,7 +2057,11 @@
 				},
                 "d":{
                     "repeatable":false
-				}
+				},
+                "0":{
+                    "repeatable": false,
+                    "values": [ "pro" ]
+                }
             }
         },
         "518":{
@@ -2009,7 +2071,11 @@
                     "repeatable":false
 				},
                 "u":{},
-                "y":{}
+                "y":{},
+                "0":{
+                    "repeatable": false,
+                    "values": [ "pro" ]
+                }
             }
         },
         "520":{
@@ -2057,6 +2123,10 @@
                             "type":"SubfieldRules.checkISSN"
                         }
 		            ]
+                },
+                "0":{
+                    "repeatable": false,
+                    "values": [ "pro" ]
                 }
             },
 	        "rules": [
@@ -2091,7 +2161,11 @@
 				},
                 "x":{
                     "repeatable":false
-				}
+				},
+                "0":{
+                    "repeatable": false,
+                    "values": [ "pro" ]
+                }
             }
         },
         "523":{
@@ -2104,7 +2178,11 @@
                     "repeatable":false
                 },
                 "u":{},
-                "y":{}
+                "y":{},
+                "0":{
+                    "repeatable": false,
+                    "values": [ "pro" ]
+                }
             }
         },
         "525":{
@@ -2113,6 +2191,10 @@
                 "a":{
                     "mandatory":true,
                     "repeatable":false
+                },
+                "0":{
+                    "repeatable": false,
+                    "values": [ "pro" ]
                 }
             }
         },
@@ -2158,6 +2240,10 @@
                 "q":{},
                 "s":{
                     "repeatable":false
+                },
+                "0":{
+                    "repeatable": false,
+                    "values": [ "pro" ]
                 }
 
             },
@@ -2191,7 +2277,11 @@
                     "rules":[ { "type":"SubfieldRules.checkISSN" } ]
                 },
                 "u":{},
-                "y":{}
+                "y":{},
+                "0":{
+                    "repeatable": false,
+                    "values": [ "pro" ]
+                }
             }
         },
         "530":{
@@ -2205,6 +2295,9 @@
                     "rules": [ { "type": "SubfieldRules.subfieldsDemandsOtherSubfields" } ]
 				},
                 "t":{},
+                "c":{},
+                "p":{},
+                "g":{},
                 "e":{},
                 "d":{},
                 "x":{},
@@ -2212,7 +2305,12 @@
                 "b":{},
                 "u":{},
                 "y":{},
-                "z":{}
+                "z":{},
+                "0":{
+                    "repeatable": false,
+                    "values": [ "pro" ]
+                },
+                "7":{}
             },
             "rules": [
                 {
@@ -2226,6 +2324,10 @@
                 "a":{
                     "mandatory":true,
                     "repeatable":false
+                },
+                "0":{
+                    "repeatable": false,
+                    "values": [ "pro" ]
                 }
             }
         },
@@ -2236,7 +2338,11 @@
                     "repeatable":false
                 },
                 "u":{},
-                "y":{}
+                "y":{},
+                "0":{
+                    "repeatable": false,
+                    "values": [ "pro" ]
+                }
             }
         },
         "534":{
@@ -2255,7 +2361,11 @@
                 "x":{},
                 "b":{},
                 "u":{},
-                "y":{}
+                "y":{},
+                "0":{
+                    "repeatable": false,
+                    "values": [ "pro" ]
+                }
             },
             "rules": [
                 {
@@ -2292,7 +2402,11 @@
                 "s":{
                     "repeatable":false
 				},
-                "t":{}
+                "t":{},
+                "0":{
+                    "repeatable": false,
+                    "values": [ "pro" ]
+                }
             }
         },
         "539":{
@@ -2301,6 +2415,10 @@
                 "a":{
                     "mandatory":true,
                     "repeatable":false
+                },
+                "0":{
+                    "repeatable": false,
+                    "values": [ "pro" ]
                 }
             }
         },
@@ -2318,6 +2436,10 @@
                 "a":{
                     "mandatory":true,
                     "repeatable":false
+                },
+                "0":{
+                    "repeatable": false,
+                    "values": [ "pro" ]
                 }
             }
         },
@@ -2327,6 +2449,10 @@
                 "a":{
                     "mandatory":true,
                     "repeatable":false
+                },
+                "0":{
+                    "repeatable": false,
+                    "values": [ "pro" ]
                 }
             }
         },
@@ -2364,6 +2490,10 @@
                 "z":{
                     "repeatable":false,
                     "rules":[ { "type":"SubfieldRules.checkISSN" } ]
+                },
+                "0":{
+                    "repeatable": false,
+                    "values": [ "pro" ]
                 }
             }
         },
@@ -2403,7 +2533,11 @@
                 "r":{
                 	"repeatable":false,
                     "rules":[ { "type":"SubfieldRules.checkISBN13" } ]
-				}
+				},
+                "0":{
+                    "repeatable": false,
+                    "values": [ "pro" ]
+                }
             }
         },
         "559":{
@@ -2413,7 +2547,11 @@
                     "repeatable":false
                 },
                 "u":{},
-                "y":{}
+                "y":{},
+                "0":{
+                    "repeatable": false,
+                    "values": [ "pro" ]
+                }
             }
         },
         "560":{
@@ -2618,11 +2756,21 @@
         },
         "581":{
             "url":"http://www.kat-format.dk/danMARC2/Danmarc2.560-599.htm",
+            "repeatable":false,
             "subfields":{
-                "a":{}, "b":{}, "c":{}, "d":{}, "e":{}, "f":{}, "g":{}, "h":{}, "i":{}, "j":{},
-                "k":{}, "l":{}, "m":{}, "n":{}, "o":{}, "p":{}, "q":{}, "r":{}, "s":{}, "t":{},
-                "u":{}, "v":{}, "w":{}, "x":{}, "y":{}, "z":{}, "\u00E6":{}, "\u00F8":{} ,
-                "0":{}, "1":{}, "2":{}, "3":{}, "4":{}, "5":{}, "6":{}, "7":{}, "8":{}, "9":{}
+               "a":{
+                    "repeatable":false
+               },
+               "b":{
+                    "repeatable":false
+                },
+                "c":{
+                    "repeatable":false
+                },
+                "d":{
+                    "repeatable":false
+                }
+
             }
         },
         "582":{
@@ -3067,9 +3215,7 @@
                 "d":{
 					"repeatable": false
 				},
-                "e":{
-					"repeatable": false
-				},
+                "e":{},
                 "v":{},
                 "x":{},
                 "y":{},
@@ -3109,7 +3255,6 @@
 				},
                 "i":{},
                 "v":{
-                    "repeatable": false,
                     "rules": [
                         {
                             "type": "SubfieldRules.subfieldsDemandsOtherSubfields"
@@ -3247,7 +3392,6 @@
                 },
                 "i":{},
                 "v":{
-                    "repeatable": false,
                     "rules": [
                         {
                             "type": "SubfieldRules.subfieldsDemandsOtherSubfields"
@@ -3530,6 +3674,7 @@
                 "i": {},
                 "q": {},
                 "p": {},
+                "v": {},
                 "m": {},
                 "g": {},
                 "u": {},
@@ -3721,6 +3866,9 @@
                 "1":{
 					"repeatable": false
 				},
+                "2":{
+                    "repeatable": false
+                },
                 "4": "Lister.fields.codes.subfields.relator_code",
                 "5":{
                     "repeatable": false
@@ -3787,6 +3935,9 @@
                 "1":{
 					"repeatable": false
 				},
+                "2":{
+                    "repeatable": false
+                },
                 "4": "Lister.fields.codes.subfields.relator_code",
                 "5":{
                     "repeatable": false
@@ -3908,6 +4059,9 @@
                 },
                 "1":{
                     "repeatable":false
+                },
+                "2":{
+                    "repeatable": false
                 }
             }
         },
@@ -3949,8 +4103,10 @@
         "770":{
             "url":"http://www.kat-format.dk/danMARC2/Danmarc2.88.htm",
             "subfields":{
+                "\u00E5":{
+                    "repeatable":false
+                },
                 "a":{
-                    "mandatory":true,
                     "repeatable":false
                 },
                 "h":{
@@ -3993,6 +4149,9 @@
         "780":{
             "url":"http://www.kat-format.dk/danMARC2/Danmarc2.89.htm",
             "subfields":{
+                "\u00E5":{
+                    "repeatable":false
+                },
                 "a":{
 					"repeatable": false
 				},
@@ -4116,6 +4275,9 @@
                 },
                 "1":{
                     "repeatable":false
+                },
+                "2":{
+                    "repeatable": false
                 }
             }
         },

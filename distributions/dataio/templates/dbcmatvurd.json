@@ -20,12 +20,13 @@
     "rules":[],
     "fields": {
         "001": {
+            "comment": "001a skal i drift være: dbcsingle.fields.001.subfields.a",
             "url": "http://www.kat-format.dk/danMARC2/bilag_h/felt001.htm",
             "mandatory": true,
             "repeatable": false,
             "sorting": "abcdf",
             "subfields": {
-                "a": "dbcsingle.fields.001.subfields.a",
+                "a": "DanMarc2.fields.001.subfields.a",
                 "b": {
                     "mandatory": true,
                     "repeatable": false,
@@ -45,7 +46,7 @@
                 "r": {
                     "mandatory": true,
                     "repeatable": false,
-                    "values": [ "n" ]
+                    "values": [ "n", "d" ]
                 },
                 "a": {
                     "mandatory": true,
@@ -66,28 +67,16 @@
                 "a": {
                     "repeatable": false
                 },
-                "b": {
-                    "repeatable": false
-                },
-                "c": {
-                    "repeatable": false
-                },
-                "d": {
-                    "repeatable": false
-                },
+                "b": {},
+                "c": {},
+                "d": {},
                 "e": {},
                 "f": {
                     "repeatable": false
                 },
-                "g": {
-                    "repeatable": false
-                },
-                "h": {
-                    "repeatable": false
-                },
-                "i": {
-                    "repeatable": false
-                },
+                "g": {},
+                "h": {},
+                "i": {},
                 "j": {
                     "repeatable": false
                 },
@@ -104,13 +93,7 @@
                     "repeatable": false
                 },
                 "5": {
-                    "rules": [{
-                        "type": "SubfieldRules.checkLength",
-                        "params": {
-                            "min": 6,
-                            "max": 6
-                        }
-                    }]
+                    "values": [ "870970" ]
                 },
                 "6": {
                     "rules": [
@@ -163,6 +146,21 @@
             "repeatable": false,
             "subfields": {
                 "a": {}
+            }
+        },
+        "n55":{
+            "url":"",
+            "subfields":{
+                "a":{
+                    "rules": [
+                        {
+                            "type": "SubfieldRules.checkDateFormat",
+                            "params": {
+                                "allowLong": false
+                            }
+                        }
+                    ]
+                }
             }
         },
         "r01":{

@@ -1,6 +1,7 @@
 {
   "libraryToTemplateGroups": {
     "dbc":                  {"templateGroups": ["DBC", "FFU"]},
+    "sbci":                 {"templateGroups":  ["SBCI"]},
     "fbs":                  {"templateGroups": ["FBS"]},
     "fbslokal":             {"templateGroups": ["FBSlokal"]},
     "ffu":                  {"templateGroups": ["FFU"]},
@@ -12,13 +13,12 @@
     "DBC": {
       "templates": [
         "allowall",
-        "BCIbog",
-        "BCIbogbind",
-        "BCIboghoved",
         "dbc",
         "dbcemneord",
         "dbcsingle",
         "dbcbind",
+        "dbcdk5",
+        "dbcforlag",
         "dbchoved",
         "dbcsektion",
         "dbcperiodica",
@@ -26,9 +26,18 @@
         "dbcautoritet",
         "dbclittolk",
         "dbcmatvurd",
+        "dbcvp",
         "delete",
         "invalid",
         "metakompas"
+      ],
+      "folder": "dataio"
+    },
+    "SBCI": {
+      "templates": [
+        "BCIbog",
+        "BCIbogbind",
+        "BCIboghoved"
       ],
       "folder": "dataio"
     },
@@ -60,6 +69,7 @@
         "lokal-artikel",
         "lokal-bog",
         "lokal-bogbind",
+        "lokal-bogsektion",
         "lokal-boghoved",
         "lokal-film",
         "lokal-filmbind",
@@ -69,9 +79,6 @@
         "lokal-generelhoved",
         "lokal-generelsektion",
         "lokal-genstand",
-        "lokal-lydbog",
-        "lokal-lydbogbind",
-        "lokal-lydboghoved",
         "lokal-musik",
         "lokal-netpub",
         "lokal-netpubbind",
@@ -113,9 +120,6 @@
         "lokal-generelhoved",
         "lokal-generelsektion",
         "lokal-genstand",
-        "lokal-lydbog",
-        "lokal-lydbogbind",
-        "lokal-lydboghoved",
         "lokal-musik",
         "lokal-netpub",
         "lokal-netpubbind",

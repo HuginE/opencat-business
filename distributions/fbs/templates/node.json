@@ -201,7 +201,6 @@
         "035": "DanMarc2.fields.035",
         "041":{
             "url": "http://www.kat-format.dk/danMARC2/Danmarc2.23.htm",
-            "repeatable":false,
             "sorting":"asbcpeu2",
             "subfields":{
                 "a": "DanMarc2.fields.041.subfields.a",
@@ -231,7 +230,7 @@
                 "f":"DanMarc2.fields.100.subfields.f",
                 "c":"DanMarc2.fields.100.subfields.c",
                 "0":"DanMarc2.fields.100.subfields.0",
-                "1": "DanMarc2.fields.100.subfields.1",
+                "1":"DanMarc2.fields.100.subfields.1",
                 "4":"DanMarc2.fields.100.subfields.4"
             }
         },
@@ -244,11 +243,11 @@
                 "e":"DanMarc2.fields.110.subfields.e",
                 "0":"DanMarc2.fields.110.subfields.0",
                 "1": "DanMarc2.fields.110.subfields.1",
-                "4":"DanMarc2.fields.100.subfields.4"				
+                "4":"DanMarc2.fields.100.subfields.4"
             }
         },
         "239": "DanMarc2.fields.239",
-        "240": "DanMarc2.fields.240",
+        "240": "fonogram.fields.240",
         "241":{
                 "url":"http://www.kat-format.dk/danMARC2/Danmarc2.39.htm",
                 "subfields":{                
@@ -322,8 +321,8 @@
                 "e":"DanMarc2.fields.300.subfields.e"
             }
         },
-        "440": "DanMarc2.fields.440",
-        "502": "DanMarc2.fields.502",
+        "440": "bog.fields.440",
+        "502": "bog.fields.502",
         "504":{
             "url":"http://www.kat-format.dk/danMARC2/Danmarc2.4c.htm",
             "subfields":{
@@ -336,10 +335,10 @@
                 }
             }
         },
-        "505": "DanMarc2.fields.505",
-        "507": "DanMarc2.fields.507",
-        "508": "DanMarc2.fields.508",
-        "509": "DanMarc2.fields.509",
+        "505": "bog.fields.505",
+        "507": "bog.fields.507",
+        "508": "bog.fields.508",
+        "509": "bog.fields.509",
         "512":{
             "url":"http://www.kat-format.dk/danMARC2/Danmarc2.52.htm",
             "subfields":{
@@ -354,7 +353,8 @@
                 "x": "DanMarc2.fields.512.subfields.x",
                 "b": "DanMarc2.fields.512.subfields.b",
                 "u": "DanMarc2.fields.512.subfields.u",
-                "y": "DanMarc2.fields.512.subfields.y"
+                "y": "DanMarc2.fields.512.subfields.y",
+                "0": "DanMarc2.fields.512.subfields.0"
             },
 			"rules": [
                 {
@@ -362,7 +362,17 @@
                 }
             ]
         },
-        "513": "DanMarc2.fields.513",
+        "513":{
+            "url":"http://www.kat-format.dk/danMARC2/Danmarc2.53.htm",
+            "subfields":{
+
+                "a": "DanMarc2.fields.513.subfields.a",
+                "e": "DanMarc2.fields.513.subfields.e",
+                "f": "DanMarc2.fields.513.subfields.f",
+                "i": "DanMarc2.fields.513.subfields.i",
+                "j": "DanMarc2.fields.513.subfields.j"
+            }
+        },
         "517": {
             "url":"http://www.kat-format.dk/danMARC2/Danmarc2.54.htm",
             "subfields":{
@@ -432,7 +442,7 @@
             },
 			"rules": [ { "type": "FieldRules.exclusiveSubfield" } ]
         },
-        "529": "DanMarc2.fields.529",
+        "529": "bog.fields.529",
         "530":{
             "url":"http://www.kat-format.dk/danMARC2/Danmarc2.5c.htm",
             "subfields":{
@@ -442,6 +452,9 @@
                 "i": "DanMarc2.fields.530.subfields.i",
                 "a": "DanMarc2.fields.530.subfields.a",
                 "t": "DanMarc2.fields.530.subfields.t",
+                "c": "DanMarc2.fields.530.subfields.c",
+                "p": "DanMarc2.fields.530.subfields.p",
+                "g": "DanMarc2.fields.530.subfields.g",
                 "e": "DanMarc2.fields.530.subfields.e",
                 "d": "DanMarc2.fields.530.subfields.d",
                 "x": "DanMarc2.fields.530.subfields.x",
@@ -452,8 +465,13 @@
             },
 			"rules": [ { "type": "FieldRules.exclusiveSubfield" } ]
         },
-        "531":"DanMarc2.fields.531",
-        "532":"DanMarc2.fields.532",
+        "531":{
+            "url":"http://www.kat-format.dk/danMARC2/Danmarc2.5d.htm",
+            "subfields":{
+                "a": "DanMarc2.fields.531.subfields.a"
+            }
+        },
+        "532": "bog.fields.532",
         "534":{
             "url":"http://www.kat-format.dk/danMARC2/Danmarc2.5f.htm",
             "subfields":{
@@ -486,7 +504,7 @@
                 "s": "DanMarc2.fields.538.subfields.s"
             }
         },
-		"555":"DanMarc2.fields.555",
+        "555": "bog.fields.555",
         "596":{
             "url":"http://www.kat-format.dk/danMARC2/Danmarc2.6c.htm",
             "subfields":{
@@ -528,8 +546,10 @@
         },
         "631":"DanMarc2.fields.631",
         "652":{
+            "comment": "forskel fra dM2: *v m\u00E5 gentages. Der findes DBC-musikposter med gentagne 652 *i + *v",
+            "comment2": "*i og *v udeladt i delfeltsorteringen",
             "url": "http://www.kat-format.dk/danMARC2/Danmarc2.79.htm",
-            "sorting":"0\u00E5mnopqrivzAaHhkEeFfCcTtBb",
+            "sorting":"0\u00E5mnopqrvAaHhkEeFfCcTtBb1",
             "subfields":{
                 "m":"DanMarc2.fields.652.subfields.m",
                 "p":"DanMarc2.fields.652.subfields.p",
@@ -600,7 +620,7 @@
         "770": "fonogram.fields.770",
         "780": "fonogram.fields.780",
         "795": "fonogram.fields.795",
-        "840": "DanMarc2.fields.840",
+        "840": "bog.fields.840",
         "880": "DanMarc2.fields.880",
         "900":{
             "url": "http://www.kat-format.dk/danMARC2/Danmarc2.99.htm",

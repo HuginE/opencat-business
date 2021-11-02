@@ -1,6 +1,6 @@
 {
     "template": {
-        "description": "Skabelon til katalogisering af flerbindsværk af fysiske bøger - sektionspost.",
+        "description": "Skabelon til katalogisering af sektionspost til netpublikation (alle materialetyper (009a))",
         "features": [ "all" ]
     },
     "settings": {
@@ -45,7 +45,7 @@
         "300": "bogsektion.fields.300",
         "320": "DanMarc2.fields.320",
         "322": "DanMarc2.fields.322",
-        "440": "DanMarc2.fields.440",
+        "440": "bog.fields.440",
 		"500": "DanMarc2.fields.500",
         "502": "DanMarc2.fields.502",
         "504": "bog.fields.504",

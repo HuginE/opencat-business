@@ -37,6 +37,8 @@ use("ExclusiveSubfieldParameterized");
 use("SubfieldHasValueDemandsOtherSubfield");
 use("FieldsIndicator");
 use("SubfieldsMandatory");
+use("CheckFieldNotUsedInChildrenRecords");
+use("CheckFieldNotUsedInParentRecords");
 
 //record rules
 use("OptionalFields");
@@ -280,7 +282,23 @@ var TemplateOptimizer = function () {
             }
             rule.params.template = template;
         } finally {
-            Log.trace("Exit -- TemplateOptimizer.setTemplatePropertyOnRule(): ", rule);
+            Log.trace("Exit -- TemplateOptimizer.setTemplatePropertyOnRule(): ");
+        }
+    }
+
+    function setContextPropertyOnRule(rule, context) {
+        Log.trace("Enter -- TemplateOptimizer.setContextPropertyOnRule()");
+        try {
+            if (rule === undefined) {
+                return;
+            }
+            if (rule.params === undefined) {
+                rule.params = {context: context};
+                return;
+            }
+            rule.params.context = context;
+        } finally {
+            Log.trace("Exit -- TemplateOptimizer.setContextPropertyOnRule(): ");
         }
     }
 
@@ -352,6 +370,9 @@ var TemplateOptimizer = function () {
                 case "RecordRules.subfieldsHaveValuesDemandsOtherSubfield":
                     return SubfieldsHaveValuesDemandsOtherSubfield.validateRecord;
 
+
+                case "FieldRules.checkFieldNotUsedInChildrenRecords":
+                    return CheckFieldNotUsedInChildrenRecords.validateField;
                 case "FieldRules.checkValueUnlessHasSubfield":
                     return CheckValueUnlessHasSubfield.validateField;
                 case "FieldRules.fieldsIndicator":
@@ -456,6 +477,7 @@ var TemplateOptimizer = function () {
         'optimizeField': optimizeField,
         'optimizeSubfield': optimizeSubfield,
         'setTemplatePropertyOnRule': setTemplatePropertyOnRule,
+        'setContextPropertyOnRule': setContextPropertyOnRule,
         'convertRuleTypeNameToFunction': convertRuleTypeNameToFunction
     };
 }();

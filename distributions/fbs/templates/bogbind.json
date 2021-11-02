@@ -212,11 +212,11 @@
 		"022": "DanMarc2.fields.022",
 		"023": "DanMarc2.fields.023",
         "028": "DanMarc2.fields.028",
+        "032": "DanMarc2.fields.032",
         "035": "DanMarc2.fields.035",
         "038": "DanMarc2.fields.028",
         "041":{
             "url": "http://www.kat-format.dk/danMARC2/Danmarc2.23.htm",
-            "repeatable":false,
             "sorting":"apbcde",
             "subfields":{
                 "a": "DanMarc2.fields.041.subfields.a",
@@ -230,6 +230,13 @@
             "rules": [
                 {
                     "type": "SubfieldRules.checkSubfieldNotUsedInParentRecord"
+                },
+                {
+                    "type": "FieldRules.checkValueUnlessHasSubfield",
+                    "params": {
+                        "subfield": "2",
+                        "values": "Lister.fields.codes.subfields.language.current_and_old.values"
+                    }
                 }
             ]
         },
@@ -343,6 +350,7 @@
         "532": "bog.fields.532",
         "534": "bog.fields.534",
         "555": "bog.fields.555",
+        "581": "DanMarc2.fields.581",
         "596": "DanMarc2.fields.596",
         "600": "bog.fields.600",
         "610": "bog.fields.610",
@@ -353,7 +361,7 @@
         "651": "DanMarc2.fields.651",
         "652":{
             "url": "http://www.kat-format.dk/danMARC2/Danmarc2.79.htm",
-            "sorting":"\u00E5pqrivzAaHhkEeFfCcTtBb0",
+            "sorting":"0\u00E5mnopqrzAaHhkEeFfCcTtBb1",
             "subfields":{
                 "p": "DanMarc2.fields.652.subfields.p",
                 "i": "DanMarc2.fields.652.subfields.i",

@@ -5,6 +5,7 @@ use("ResourceBundleFactory");
 use("ValidateErrors");
 use("ValueCheck");
 use("ValidationUtil");
+use("ContextUtil");
 
 EXPORTED_SYMBOLS = ['SubfieldHasValueDemandsOtherSubfield'];
 
@@ -30,14 +31,17 @@ var SubfieldHasValueDemandsOtherSubfield = function () {
         ValueCheck.check("params.fieldMandatory", params.fieldMandatory);
         ValueCheck.check("params.subfieldMandatory", params.subfieldMandatory);
         try {
-            var bundle = ResourceBundleFactory.getBundle(BUNDLE_NAME);
-
+            var errorMsg = null;
             var result = [];
+            var context = params.context;
             for (var i = 0; i < field.subfields.length; ++i) {
                 if (field.subfields[i].name === params.subfieldConditional && field.subfields[i].value === params.subfieldConditionalValue) {
-                    var conditionalField = ValidationUtil.getFields(record, params.fieldMandatory);
+                    var conditionalField = ContextUtil.getValue(context, 'getFields', params.fieldMandatory);
+                    if (conditionalField === undefined) {
+                        conditionalField = ValidationUtil.getFields(record, params.fieldMandatory);
+                        ContextUtil.setValue(context, conditionalField, 'getFields', params.fieldMandatory);
+                    }
                     // TODO move this
-                    var errorMsg = ResourceBundle.getStringFormat(bundle, "subfield.has.value.demands.other.subfield.rule.error", params.subfieldConditional, field.name, params.subfieldConditionalValue, params.fieldMandatory, params.subfieldMandatory);
                     var foundSubfield = false;
                     if (conditionalField.length > 0) {
                         for (i = 0; i < conditionalField.length; ++i) {
@@ -48,9 +52,11 @@ var SubfieldHasValueDemandsOtherSubfield = function () {
                             }
                         }
                         if (foundSubfield === false) {
+                            errorMsg = getErrorMessage(params, field);
                             result.push(ValidateErrors.fieldError("TODO:fixurl", errorMsg));
                         }
                     } else {
+                        errorMsg = getErrorMessage(params, field);
                         result.push(ValidateErrors.fieldError("TODO:fixurl", errorMsg));
                     }
                     break;
@@ -60,6 +66,11 @@ var SubfieldHasValueDemandsOtherSubfield = function () {
         } finally {
             Log.trace("Enter -- SubfieldHasValueDemandsOtherSubfield.validateField");
         }
+    }
+
+    function getErrorMessage(params, field) {
+        var bundle = ResourceBundleFactory.getBundle(BUNDLE_NAME);
+        return ResourceBundle.getStringFormat(bundle, "subfield.has.value.demands.other.subfield.rule.error", params.subfieldConditional, field.name, params.subfieldConditionalValue, params.fieldMandatory, params.subfieldMandatory);
     }
 
     return {

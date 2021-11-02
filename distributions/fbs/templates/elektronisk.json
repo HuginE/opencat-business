@@ -1,6 +1,6 @@
 {
     "template": {
-        "description": "Skabelon til katalogisering af elektroniske materisler på fysiske medier (fx computerspil) - enkeltstående post.",
+        "description": "Skabelon til katalogisering af elektroniske materialer på fysiske medier (fx computerspil) - enkeltstående post.",
         "features": [ "all" ]
     },
     "settings": {
@@ -126,7 +126,6 @@
         "032": "DanMarc2.fields.032",
         "041":{
             "url": "http://www.kat-format.dk/danMARC2/Danmarc2.23.htm",
-            "repeatable":false,
             "sorting":"asbcpeuqt2",
             "subfields":{
                 "a": "DanMarc2.fields.041.subfields.a",

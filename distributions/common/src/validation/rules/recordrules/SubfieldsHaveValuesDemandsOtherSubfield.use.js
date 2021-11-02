@@ -22,8 +22,7 @@ var SubfieldsHaveValuesDemandsOtherSubfield = function () {
      * @returns {Array}
      */
     function validateRecord(record, params) {
-        Log.trace("Enter - SubfieldsHaveValuesDemandsOtherSubfield.validateField");
-        var bundle = ResourceBundleFactory.getBundle(BUNDLE_NAME);
+        Log.trace("Enter - SubfieldsHaveValuesDemandsOtherSubfield.validateRecord");
         var result = [];
 
         try {
@@ -54,6 +53,7 @@ var SubfieldsHaveValuesDemandsOtherSubfield = function () {
             });
 
             if (__allDemandsFound(params)) {
+                var bundle = ResourceBundleFactory.getBundle(BUNDLE_NAME);
                 var errorMessage = ResourceBundle.getStringFormat(bundle, "subfield.mandatory.because.of.other.fields",
                     params.mandatoryFieldName, params.mandatorySubfieldName, __prettyPrintDemands(params));
                 result.push(ValidateErrors.fieldError("TODO:url", errorMessage));
@@ -61,7 +61,7 @@ var SubfieldsHaveValuesDemandsOtherSubfield = function () {
 
             return result;
         } finally {
-            Log.trace("Exit - SubfieldsMandatory.validateField(): ", result);
+            Log.trace("Exit - SubfieldsMandatory.validateRecord(): ", result);
         }
     }
 

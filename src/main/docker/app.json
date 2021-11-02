@@ -1,0 +1,18 @@
+{
+  "appName": "opencat-business",
+  "profiles": [
+    "long-running-requests",
+    "nashorn"
+  ],
+  "logger": {
+    "dk.dbc.jslib": {
+      "level": "DEBUG"
+    },
+    "dk.dbc": {
+      "level": "DEBUG"
+    },
+    "JavaScript.Logger": {
+      "level": "DEBUG"
+    }
+  }
+}
