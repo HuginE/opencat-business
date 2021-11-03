@@ -14,6 +14,18 @@
     "setup": {
       "rawrepo": [
         {
+          "record": "rawrepo-parent-new.marc",
+          "type": "MARCXCHANGE",
+          "deleted": false,
+          "enrichments": [ "rawrepo-parent-new-enrichment.marc" ],
+          "children": [ "rawrepo-parent-old.marc" ]
+        },
+        {
+          "record": "rawrepo-parent-new-enrichment.marc",
+          "type": "ENRICHMENT",
+          "deleted": false
+        },
+        {
           "record": "rawrepo-parent-old.marc",
           "type": "MARCXCHANGE",
           "deleted": false,
@@ -22,17 +34,6 @@
         },
         {
           "record": "rawrepo-parent-old-enrichment.marc",
-          "type": "ENRICHMENT",
-          "deleted": false
-        },
-        {
-          "record": "rawrepo-parent-new.marc",
-          "type": "MARCXCHANGE",
-          "deleted": false,
-          "enrichments": [ "rawrepo-parent-new-enrichment.marc" ]
-        },
-        {
-          "record": "rawrepo-parent-new-enrichment.marc",
           "type": "ENRICHMENT",
           "deleted": false
         },
