@@ -1,0 +1,53 @@
+[
+    {
+        "name": "change-fbs-ownership",
+        "description": "Tester at et fbs bibliotek kan overtage en fællesskabspost ejet af et andet fbs bibliotek",
+        "request": {
+            "authentication": {
+                "group": "733000",
+                "user": "netpunkt",
+                "password": "20Koster"
+            },
+            "templateName": "bog",
+            "record": "request.marc"
+        },
+        "setup": {
+            "rawrepo": [
+                {
+                    "record": "rawrepo-870970.marc",
+                    "type": "MARCXCHANGE",
+                    "deleted": false,
+                    "enrichments": [
+                        "rawrepo-191919.marc"
+                    ]
+                },
+                {
+                    "record": "rawrepo-191919.marc",
+                    "type": "ENRICHMENT",
+                    "deleted": false
+                }
+            ]
+        },
+        "expected": {
+            "validation": {},
+            "update": {
+                "errors": [],
+                "rawrepo": [
+                    {
+                        "record": "expected-870970.marc",
+                        "type": "MARCXCHANGE",
+                        "deleted": false,
+                        "enqueued": true,
+                        "enrichments": [ "expected-191919.marc" ]
+                    },
+                    {
+                        "record": "expected-191919.marc",
+                        "type": "ENRICHMENT",
+                        "deleted": false,
+                        "enqueued": true
+                    }
+                ]
+            }
+        }
+    }
+]
