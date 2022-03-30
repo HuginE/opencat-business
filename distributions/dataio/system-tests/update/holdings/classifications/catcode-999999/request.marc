@@ -11,18 +11,18 @@
 250 00 *a 1. udgave *b ÷
 260 00 *& 1 *a Ꜳrhus *b Turbine *c 2015
 300 00 *a 16 sider *b ill. i farver
-440 00 *0 *a Min første bog *ø Ꜳrhus
+440 00 *0 norm *a Min første bog *ø Ꜳrhus
 521 00 *b 1. oplag *c 2015 *k tr. i udl.
 526 00 *a Hertil findes lærervejledning og opgaver på seriens hjemmeside
 530 00 *& 1 *a Indhold: En stor by ; Lille, gammel og kendt ; Sjov i byen ; Gå og cykle ; Uro og fred ; Dronning og prins
 532 00 *& 1 *a Med litteraturhenvisninger og links
 652 00 *m 46.3
-666 00 *0 *e København
-666 00 *0 *u for 6 år
-666 00 *0 *u for 7 år
-666 00 *0 *u for 8 år
-666 00 *0 *u let at læse
-666 00 *0 *u for begynderlæsere
+666 00*e København
+666 00*u for 6 år
+666 00*u for 7 år
+666 00*u for 8 år
+666 00*u let at læse
+666 00*u for begynderlæsere
 720 00 *o Peter Bejder *4 edt
 720 00 *o Lars C. Hansen *4 dkbea
 720 00 *o Ole Steen *4 ill

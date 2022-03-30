@@ -37,16 +37,15 @@ public class AbstractOpencatBusinessContainerTest {
     private static final GenericContainer holdingsItemsDbContainer;
     private static final GenericContainer openCatBusinessContainer;
     private static final String JAVA_BASE_IMAGE = "docker.dbc.dk/dbc-java8";
-    private static final String RAWREPO_DB_IMAGE = "docker-io.dbc.dk/rawrepo-postgres-1.13-snapshot:DIT-5016";
+    private static final String RAWREPO_DB_IMAGE = "docker-io.dbc.dk/rawrepo-postgres-1.15-snapshot:DIT-5155";
     private static final String HOLDINGITEMS_DB_IMAGE = "docker-os.dbc.dk/holdings-items-postgres-1.1.4:latest";
-    private static final String RECORD_SERVICE_IMAGE = "docker-io.dbc.dk/rawrepo-record-service:DIT-287";
+    private static final String RECORD_SERVICE_IMAGE = "docker-io.dbc.dk/rawrepo-record-service:DIT-321";
     private static final String WIREMOCK_JAR = "wiremock-standalone-2.5.1.jar";
 
     private static final String RAWREPO_DB_BASE_URL;
     private static final String HOLDINGS_ITEMS_DB_URL;
     private static final String RECORD_SERVICE_BASE_URL;
     private static final String VIPCORE_ENDPOINT = "http://vipcore.iscrum-vip-extern-test.svc.cloud.dbc.dk";
-    private static final String FORSRIGHTS_URL = "http://forsrights.addi.dk/2.0/";
     private static final String SOLR_URL = "http://solr:9090";
     private static final String OPENNUMBERROLL_URL = "http://opennumberroll:9090";
 
@@ -98,8 +97,8 @@ public class AbstractOpencatBusinessContainerTest {
                 .withLogConsumer(new Slf4jLogConsumer(LOGGER))
                 .withEnv("INSTANCE", "it")
                 .withEnv("LOG_FORMAT", "text")
-                .withEnv("OPENAGENCY_CACHE_AGE", "0")
                 .withEnv("VIPCORE_ENDPOINT", VIPCORE_ENDPOINT)
+                .withEnv("VIPCORE_CACHE_AGE", "0")
                 .withEnv("RAWREPO_URL", RAWREPO_DB_BASE_URL)
                 .withEnv("HOLDINGS_URL", HOLDINGS_ITEMS_DB_URL)
                 .withEnv("DUMP_THREAD_COUNT", "8")
@@ -119,7 +118,6 @@ public class AbstractOpencatBusinessContainerTest {
                 .withEnv("RAWREPO_RECORD_SERVICE_URL", RECORD_SERVICE_BASE_URL)
                 .withEnv("VIPCORE_ENDPOINT", VIPCORE_ENDPOINT)
                 .withEnv("SOLR_URL", SOLR_URL)
-                .withEnv("FORSRIGHTS_URL", FORSRIGHTS_URL)
                 .withEnv("JAVA_MAX_HEAP_SIZE", "2G")
                 .withEnv("OPENNUMBERROLL_URL", OPENNUMBERROLL_URL)
                 .withEnv("OPENNUMBERROLL_NAME_FAUST_8", "faust")
@@ -148,7 +146,7 @@ public class AbstractOpencatBusinessContainerTest {
     }
 
     static void resetRawrepoDb(Connection connection) throws Exception {
-        final List<String> tables = Arrays.asList("relations", "records", "records_cache", "records_archive", "queue", "jobdiag");
+        final List<String> tables = Arrays.asList("relations", "records", "records_archive", "queue", "jobdiag");
 
         PreparedStatement stmt;
 

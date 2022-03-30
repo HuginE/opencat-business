@@ -4,9 +4,9 @@
 SOLR_PORT_NR=${SOLR_PORT_NR:-WHAT}     # silencing annoying intellij quibble
 export PROJECT_ROOT=$(dirname $(dirname $(realpath ${0})))
 
-RAWREPO_VERSION=1.13-snapshot
-RAWREPO_DIT_TAG=DIT-5016
-RAWREPO_RECORD_SERVICE_VERSION=DIT-281
+RAWREPO_VERSION=1.15-snapshot
+RAWREPO_DIT_TAG=DIT-5156
+RAWREPO_RECORD_SERVICE_VERSION=DIT-321
 HOLDINGS_ITEMS_VERSION=1.1.4-snapshot
 UPDATE_FACADE_TAG=master-31
 
@@ -46,9 +46,6 @@ else
     export HOST_IP=$( ip -o addr show | grep "inet " | cut -d: -f2- | cut -c2- | egrep -v "^docker|^br" | grep "$(ip route list | grep default | cut -d' ' -f5) " | cut -d' ' -f6 | cut -d/ -f1)
 fi
 
-# Create docker network if it doesn't exists
-[[ ! "$(docker network ls | grep update-compose-network)" ]] && docker network create --subnet=192.180.0.0/22 update-compose-network
-
 export PROD_VERSION=$(curl -s https://is.dbc.dk/view/metascrum/job/updateservice/job/updateservice-deploy/job/cisterne/lastSuccessfulBuild/artifact/UPDATE_DOCKER_IMAGE | cut -f2-3 -d:)
 echo "Using prod version ${PROD_VERSION} of updateservice"
 
@@ -60,16 +57,16 @@ if [ ${DEV_NUMBERROLL_URL} = "NOTSET" ]
 then
     export DEV_NUMBERROLL_URL="http://${HOST_IP}:${SOLR_PORT_NR}"
 fi
-DEV_OPENAGENCY_URL=${DEV_OPENAGENCY_URL:-NOTSET}
-if [ ${DEV_OPENAGENCY_URL} = "NOTSET" ]
-then
-    export DEV_OPENAGENCY_URL="http://${HOST_IP}:${SOLR_PORT_NR}"
-fi
 
 DEV_VIPCORE_ENDPOINT=${DEV_VIPCORE_ENDPOINT:-NOTSET}
 if [ ${DEV_VIPCORE_ENDPOINT} = "NOTSET" ]
 then
     export DEV_VIPCORE_ENDPOINT="http://${HOST_IP}:${SOLR_PORT_NR}"
+fi
+DEV_IDP_SERVICE_URL=${DEV_IDP_SERVICE_URL:-NOTSET}
+if [ ${DEV_IDP_SERVICE_URL} = "NOTSET" ]
+then
+    export DEV_IDP_SERVICE_URL="http://${HOST_IP}:${SOLR_PORT_NR}"
 fi
 # Solr FBS settings
 DEV_SOLR_ADDR=${DEV_SOLR_ADDR:-NOTSET}
@@ -228,4 +225,3 @@ echo "export SOLR_PORT_NR=${SOLR_PORT_NR}"
 ../../bin/healthcheck-rawrepo-record-service.sh ${HOST_IP} ${RAWREPO_RECORD_SERVICE_PORT_8080} 220 || die "could not start rawrepo-record-service"
 ../../bin/healthcheck-update-service.sh ${HOST_IP} ${UPDATESERVICE_PORT_8080} 220 || die "could not start update-service"
 ../../bin/healthcheck-update-facade-service.sh ${HOST_IP} ${UPDATESERVICE_FACADE_PORT_8080} 220 || die "could not start update-facade-service"
-

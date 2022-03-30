@@ -39,7 +39,6 @@ public class ValidateRecordIT extends AbstractOpencatBusinessContainerTest {
                 "        <subfield code=\"c\">20150304180759</subfield>\n" +
                 "        <subfield code=\"d\">20150209</subfield>\n" +
                 "        <subfield code=\"f\">a</subfield>\n" +
-                "        <subfield code=\"t\">FAUST</subfield>\n" +
                 "    </datafield>\n" +
                 "    <datafield ind1=\"0\" ind2=\"0\" tag=\"004\">\n" +
                 "        <subfield code=\"r\">n</subfield>\n" +
@@ -100,7 +99,7 @@ public class ValidateRecordIT extends AbstractOpencatBusinessContainerTest {
                 "        <subfield code=\"b\">alle ill. i farver</subfield>\n" +
                 "    </datafield>\n" +
                 "    <datafield ind1=\"0\" ind2=\"0\" tag=\"440\">\n" +
-                "        <subfield code=\"0\"/>\n" +
+                "        <subfield code=\"0\">norm</subfield>\n" +
                 "        <subfield code=\"a\">Digilesen</subfield>\n" +
                 "        <subfield code=\"o\">Lillys Leben - Niveau B</subfield>\n" +
                 "    </datafield>\n" +
@@ -196,7 +195,6 @@ public class ValidateRecordIT extends AbstractOpencatBusinessContainerTest {
                 "        <subfield code=\"c\">20150304180759</subfield>\n" +
                 "        <subfield code=\"d\">20150209</subfield>\n" +
                 "        <subfield code=\"f\">a</subfield>\n" +
-                "        <subfield code=\"t\">FAUST</subfield>\n" +
                 "    </datafield>\n" +
                 "    <datafield ind1=\"0\" ind2=\"0\" tag=\"004\">\n" +
                 "        <subfield code=\"r\">n</subfield>\n" +
@@ -257,7 +255,7 @@ public class ValidateRecordIT extends AbstractOpencatBusinessContainerTest {
                 "        <subfield code=\"b\">alle ill. i farver</subfield>\n" +
                 "    </datafield>\n" +
                 "    <datafield ind1=\"0\" ind2=\"0\" tag=\"440\">\n" +
-                "        <subfield code=\"0\"/>\n" +
+                "        <subfield code=\"0\">norm</subfield>\n" +
                 "        <subfield code=\"a\">Digilesen</subfield>\n" +
                 "        <subfield code=\"o\">Lillys Leben - Niveau B</subfield>\n" +
                 "    </datafield>\n" +

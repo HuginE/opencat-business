@@ -75,8 +75,7 @@
                     ]
                 },
                 "f": "DanMarc2.fields.001.subfields.f",
-                "o": "DanMarc2.fields.001.subfields.o",
-                "t": "DanMarc2.fields.001.subfields.t"
+                "o": "DanMarc2.fields.001.subfields.o"
             }
         },
         "002": "dbcsingle.fields.002",
@@ -89,7 +88,8 @@
                 "a": {
                     "repeatable": false,
                     "values": [ "i" ]
-                }
+                },
+                "n": "DanMarc2.fields.004.subfields.n"
             }
         },
         "008": {
@@ -400,6 +400,9 @@
                 "d": "DanMarc2.fields.534.subfields.d",
                 "x": "DanMarc2.fields.534.subfields.x",
                 "b": "DanMarc2.fields.534.subfields.b",
+                "c": "DanMarc2.fields.534.subfields.c",
+                "p": "DanMarc2.fields.534.subfields.p",
+                "g": "DanMarc2.fields.534.subfields.g",
                 "u": "DanMarc2.fields.534.subfields.u",
                 "y": "DanMarc2.fields.534.subfields.y"
             }

@@ -1,6 +1,6 @@
 001 00 *a 51270657 *b 870970 *c 20141029161445 *d 20140829 *f a
 004 00 *r n *a e
-008 00 *t m *v 4 *u u *a 2013 *b gb *d y *l eng *x 06
+008 00 *t m *u u *a 2013 *b gb *d y *l eng *x 06 *v 4
 009 00 *a a *g xx
 021 00 *e 9780141027821 *c hf.
 100 00 *5 870979 *6 19165914 *4aut
@@ -14,15 +14,15 @@
 651 00 *a Europe *x History *y 1871-1918
 651 00 *a Europe *x Politics and government *y 1871-1918
 652 00 *m 91.91
-666 00 *0 *f den ¤1. verdenskrig
-666 00 *0 *f historie
-666 00 *0 *f international politik
-666 00 *0 *e Europa
-666 00 *0 *i 1870-1879
-666 00 *0 *i 1880-1889
-666 00 *0 *i 1890-1899
-666 00 *0 *i 1900-1909
-666 00 *0 *i 1910-1919
+666 00*f den ¤1. verdenskrig
+666 00*f historie
+666 00*f international politik
+666 00*e Europa
+666 00*i 1870-1879
+666 00*i 1880-1889
+666 00*i 1890-1899
+666 00*i 1900-1909
+666 00*i 1910-1919
 700 00 *a Clark *h Christopher M.
 900 00 *a Clark *h Christopher *z 100
 996 00 *a 710100

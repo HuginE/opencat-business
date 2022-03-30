@@ -60,9 +60,6 @@
                 },
                 "o": {
                     "repeatable": false
-                },
-                "t": {
-                    "repeatable": false
                 }
             }
         },
@@ -542,7 +539,11 @@
                     "repeatable":false
                 },
                 "x":{},
-                "z":{}
+                "z":{},
+                "5":{
+                    "repeatable":false
+                },
+                "6":{}
             }
         },
         "023":{
@@ -1749,6 +1750,8 @@
                 "f":{},
                 "g":{},
                 "h":{},
+                "i":{},
+                "j":{},
                 "2":{
                     "repeatable":false
                 },
@@ -1845,7 +1848,8 @@
                 },
                 "v":{},
                 "0":{
-                    "repeatable":false
+                    "repeatable":false,
+                    "values": [ "norm" ]
                 },
                 "1":{
                     "repeatable":false
@@ -2360,6 +2364,9 @@
                 "d":{},
                 "x":{},
                 "b":{},
+                "c":{},
+                "p":{},
+                "g":{},
                 "u":{},
                 "y":{},
                 "0":{
@@ -3954,6 +3961,9 @@
                 "h":{
                     "repeatable":false
                 },
+                "c":{
+                    "repeatable":false
+                },
                 "k":{
                     "repeatable":false
                 },
@@ -4285,27 +4295,10 @@
             "url":"http://www.kat-format.dk/danMARC2/Danmarc2.8c.htm",
             "subfields":{
                 "a":{},
-                "b":{},
                 "c":{},
                 "d":{},
                 "f":{},
-                "h":{
-                    "repeatable":false
-                },
-                "i":{},
-                "j":{
-                    "repeatable":false
-                },
-                "k":{
-                    "repeatable":false
-                },
-                "l":{
-                    "repeatable":false
-                },
                 "m":{},
-                "n":{
-                    "repeatable":false
-                },
                 "o":{
                     "repeatable":false
                 },
@@ -4315,11 +4308,7 @@
                 "q":{
                     "repeatable":false
                 },
-                "r":{
-                    "repeatable":false
-                },
                 "s":{},
-                "t":{},
                 "u":{},
                 "y":{},
                 "v":{},
